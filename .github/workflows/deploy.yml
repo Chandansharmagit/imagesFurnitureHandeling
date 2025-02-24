@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: build/
-          server-dir: /home/nepalmod/  # Adjust this directory if needed
+          server-dir: /home/nepalmod/images.chandansharmablogs.tech/
