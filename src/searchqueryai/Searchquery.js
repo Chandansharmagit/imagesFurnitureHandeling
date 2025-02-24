@@ -245,7 +245,7 @@ const Searchquery = () => {
     
     <div className="page-container">
       <div className="hero-section">
-        <h1>{searchTitle || 'Discover Perfect Furniture'}</h1>
+        <h1>{searchTitle || 'Chandan Perfect Furniture'}</h1>
         <p className="subtitle">Search through thousands of premium furniture pieces for your home</p>
       </div>
 
