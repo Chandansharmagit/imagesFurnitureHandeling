@@ -15,7 +15,6 @@ function CustomerFurnitureDetail() {
   const [totalAmount, setTotalAmount] = useState("");
   const [advancePayment, setAdvancePayment] = useState("");
   const [remainingPayment, setRemainingPayment] = useState("");
-  const [calculationResult, setCalculationResult] = useState(null);
 
   // Automatically calculate remaining payment
   useEffect(() => {
@@ -52,7 +51,6 @@ function CustomerFurnitureDetail() {
       if (newTask.includes('=')) {
         setTasks([...tasks, newTask]);
         setNewTask("");
-        setCalculationResult("");
       }
     }
   };
@@ -91,9 +89,8 @@ function CustomerFurnitureDetail() {
           const formattedResult = Number(result).toFixed(2); // Format to 2 decimal places
           const finalTask = `${description}: ${calculation} = ${formattedResult}`;
           setNewTask(finalTask);
-          setCalculationResult(formattedResult);
         } catch (error) {
-          setCalculationResult("Invalid calculation");
+          // Remove setCalculationResult line
         }
       }
     }

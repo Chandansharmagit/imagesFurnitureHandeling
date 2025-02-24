@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSomeIcon } from '@fortawesome/free-solid-svg-icons';
+
 
 import './Searchquery.css';
 import { 
@@ -23,14 +23,13 @@ const Searchquery = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTitle, setSearchTitle] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
-  const searchTimeoutRef = useRef(null);
+ 
   const [error, setError] = useState(null);
   const [isGenerating, setIsGenerating] = useState(false);
-  const [allImages, setAllImages] = useState([]);
+
   const [hoveredCardId, setHoveredCardId] = useState(null);
   const [showDownloadPopup, setShowDownloadPopup] = useState(false);
   const [selectedDownloadItem, setSelectedDownloadItem] = useState(null);
-  const [selectedQuality, setSelectedQuality] = useState('standard');
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
   const [cardNumber, setCardNumber] = useState('');
@@ -40,7 +39,6 @@ const Searchquery = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-
   const imageContainerStyle = {
     width: '100%',
     height: '100%',
@@ -520,7 +518,35 @@ const Searchquery = () => {
               
             </div>
 
-          
+            <div style={{ flex: '1' }}>
+              <h3 style={{ marginTop: 0 }}>Select Download Plan</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                <div
+                  onClick={() => setSelectedPlan('basic')}
+                  style={{
+                    padding: '15px',
+                    border: `2px solid ${selectedPlan === 'basic' ? '#4CAF50' : '#ccc'}`,
+                    borderRadius: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <h4 style={{ margin: '0 0 5px 0' }}>Basic Plan</h4>
+                  <p style={{ margin: 0 }}>Standard resolution download</p>
+                </div>
+                <div
+                  onClick={() => setSelectedPlan('premium')}
+                  style={{
+                    padding: '15px',
+                    border: `2px solid ${selectedPlan === 'premium' ? '#4CAF50' : '#ccc'}`,
+                    borderRadius: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <h4 style={{ margin: '0 0 5px 0' }}>Premium Plan</h4>
+                  <p style={{ margin: 0 }}>High resolution download with commercial license</p>
+                </div>
+              </div>
+            </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
               <button

@@ -38,7 +38,7 @@ const App = () => {
       if (!isAuthenticated && location.pathname === '/admin-dashboard') {
         setShowLoginModal(true);
       }
-    }, [location, isAuthenticated]);
+    }, [location]);
 
     if (!isAuthenticated) {
       return <Navigate to="/" />;
