@@ -1,0 +1,314 @@
+/* Main container with gradient background */
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  min-height: 100vh;
+}
+
+.orders-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+  max-width: 1800px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+/* Enhanced Order card */
+.order-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Improved Image container */
+.image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.order-card:hover .image-container img {
+  transform: scale(1.05);
+}
+
+/* Enhanced Card content */
+.card-content {
+  padding: 25px;
+}
+
+.card-content h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Stylish Date section */
+.date-section {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 15px 0;
+}
+
+.date-section p {
+  color: #5a6c7d;
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Modern Tasks section */
+.tasks-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.task-chip {
+  background: #e8f0fe;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #1a73e8;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid #d2e3fc;
+}
+
+.task-chip:hover {
+  background: #d2e3fc;
+  transform: translateY(-2px);
+}
+
+/* Enhanced Payment section */
+.payment-section {
+  margin-top: 25px;
+  background: #fafbfc;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.payment-item {
+  text-align: center;
+  padding: 15px 10px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.payment-item p {
+  color: #6b7c93;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.payment-item h4 {
+  color: #2d3748;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Improved Progress bar */
+.progress-section {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #edf2f7;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: all 0.4s ease;
+  border-radius: 20px;
+}
+
+.progress-text {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.status-pending {
+  background: #fff3dc;
+  color: #b7791f;
+}
+
+/* Responsive design improvements */
+@media (max-width: 1200px) {
+  .orders-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .orders-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .image-container {
+    height: 200px;
+  }
+
+  .payment-grid {
+    gap: 10px;
+  }
+
+  .payment-item {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .payment-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+  }
+
+  .payment-item p {
+    margin: 0;
+  }
+
+  .task-chip {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.order-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Hover effects */
+.order-card:hover .task-chip {
+  background: #d2e3fc;
+}
+
+.payment-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.clickable-image {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.clickable-image:hover {
+  transform: scale(1.05);
+} 

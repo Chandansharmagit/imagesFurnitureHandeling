@@ -1,0 +1,157 @@
+/* Container styles */
+.gallery-container {
+  padding: clamp(10px, 2vw, 20px);
+  width: 100%;
+  max-width: 1400px;
+ 
+  margin-top: 2rem;
+}
+
+/* Grid layout */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: clamp(10px, 2vw, 25px);
+  padding: 10px;
+}
+
+/* Image card styles */
+.image-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: clamp(10px, 2vw, 20px);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.image-card h4 {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.image-card p {
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  color: #666;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+/* Button styles */
+.delete-button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 20px);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  transition: background 0.2s ease;
+  width: 100%;
+}
+
+.delete-button:hover {
+  background: #c0392b;
+}
+
+.load-more-button {
+  margin: 30px auto;
+  display: block;
+  padding: clamp(10px, 1.5vw, 15px) clamp(20px, 3vw, 30px);
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  transition: background 0.2s ease;
+}
+
+.load-more-button:hover {
+  background-color: #2980b9;
+}
+
+/* Loading and error states */
+.loading-text, 
+.error-message {
+  text-align: center;
+  padding: 20px;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.error-message {
+  color: #e74c3c;
+}
+
+/* Responsive typography */
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  margin-bottom: clamp(20px, 3vw, 40px);
+  color: #2c3e50;
+}
+
+/* Media Queries for different screen sizes */
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  }
+  
+  .image-card {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    padding: 10px;
+  }
+
+  .image-grid {
+    gap: 15px;
+  }
+
+  .image-card img {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .image-card {
+    transition: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .image-card {
+    background: #2c3e50;
+    border-color: #34495e;
+  }
+
+  .image-card h4 {
+    color: #ecf0f1;
+  }
+
+  .image-card p {
+    color: #bdc3c7;
+  }
+} 
