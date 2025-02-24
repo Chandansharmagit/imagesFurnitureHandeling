@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CustomerFurnitureDetail.css";
-import { Document, Page, pdfjs } from "react-pdf";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
 import AdminDashboard from "../admin-dashboard/admin-dashboard";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function CustomerFurnitureDetail() {
   const [tasks, setTasks] = useState([]);
